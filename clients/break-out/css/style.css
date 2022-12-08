@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face { font-family: 'Freehand575'; src: url('../fonts/Freehand575.woff2') format('woff2'), url('../fonts/Freehand575.woff') format('woff'); font-weight: 100; font-style: italic; }
+body { background: url(../img/bg.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+h1.topHead { color: #ee0000; font-size: 48px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; text-shadow: 2px 1px 3px #868585; padding: 70px 0 50px; margin: 0 auto; }
+.productImg { margin: 0 auto; }
+.ProductDesc1 { color: #000000; font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin: 0 auto; padding: 20px 0 28px; }
+.ProductDesc2 { color: #000000; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-align: center; margin: 0 auto; }
+.ProductDesc1 span { color: #ee0000; }
+.ProductDesc2 span { color: #ee0000; }
+.boxWrap { padding: 0 56px; }
+.contentBox { height: auto; width: 100%; background: #fff; padding: 20px; box-shadow: 0px 0px 75px 2px #d4d4d4; margin: 55px auto; }
+.contentBox h2 { color: #ee0000; font-size: 25px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-shadow: 1px 1px 3px #c1c1c1; margin: 5px auto 25px; }
+.contentBox h2 span { font-weight: 400; }
+.contentBoxSmall { height: auto; width: 430px; background: #fff; padding: 20px; box-shadow: 0px 0px 75px 2px #d4d4d4; margin: 55px auto; }
+.contentBoxSmall h2 { color: #ee0000; font-size: 25px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-shadow: 1px 1px 3px #c1c1c1; margin: 5px auto 25px; }
+.contentBoxSmall h2 span { font-weight: 400; }
+.downloadWrap { padding: 0 60px; }
+.downloadWrap h2 { color: #000000; font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin-bottom: 40px; }
+.downloadWrap h2 span { color: #ee0000 }
+.downloadWrap h3 { color: #000000; font-size: 24px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin-bottom: 30px; }
+.downloadWrap h3 span { color: #ee0000 }
+.downloadBtnWrap { padding: 0 130px; }
+.downloadBtnWrap img { width: 100%; }
+.downloadWrapBtm h3 { color: #000000; font-size: 23px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin: 45px 0 30px 0; }
+.deserveWrap h3 { color: #ee0000; font-size: 79px; font-weight: 600; text-align: center; font-family: 'Freehand575'; font-weight: 100; font-style: italic; text-shadow: 2px 1px 3px #c5c5c5; }
+.privacyWrap { text-align: center; padding: 30px 0 40px 0; }
+.privacyWrap a { color: #000; font-family: 'Montserrat', sans-serif; font-weight: 400; padding: 0 10px; text-decoration: none; }
+.privacyWrap a:hover { color: #ee0000; }
+.topPadding { padding: 65px 0; }
+
+@media only screen and (max-width: 991px) {
+.contentBox img { width: 100%; }
+}
+
+@media only screen and (max-width: 991px) {
+.downloadBtnWrap { padding: 0 30px; }
+h1.topHead { font-size: 33px; }
+.downloadWrap h2 { font-size: 22px; }
+.downloadWrap h3 { font-size: 22px; }
+.downloadWrapBtm h3 { font-size: 20px; }
+.deserveWrap h3 { font-size: 60px; }
+.ProductDesc1 { font-size: 22px; }
+.ProductDesc2 { font-size: 18px; }
+}
+
+
+/* new css */
+.contentBox img { width: 100%; }
+.bold_bullets{font-weight:bold;}
+.bold_bullets .bullet {color:#000;font-size: 25px;}
+ h1.topHead{color:#000 !important;}
+.ProductDesc2 span{color:#000 !important;}
+.contentBox h2{color:#000;}
+
+.ProductDesc1{text-align: justify;}
+.ProductDesc2{text-align: justify;}

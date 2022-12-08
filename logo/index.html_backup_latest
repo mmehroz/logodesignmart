@@ -1,0 +1,1019 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Important CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.banner-text h5 {
+    font-size: 120px;
+}
+.banner-text h3 {
+    font-size: 30px;
+}
+.admi,
+img.man-pic {
+    max-width: 681px;
+}
+.fadein {
+  position: absolute;
+    height: 200px;
+    width: 200px;
+    float: right;
+       right: 13%;
+    top: 58px;
+}.fadein img {
+	max-width:70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.admi img {
+    padding: 107px 0px 0px 0px;
+}
+img.man-pic {
+    width: 100%;
+}
+.timer{
+    width:200px;
+        margin: 0 auto; 
+    text-align:center;
+    display:block;
+    font-size: 38px;
+    padding: 5px 0px;
+    font-family: 'Conv_muller_medium';
+}
+</style>
+<!-- Important JS -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+function moved() {
+
+      var active_index = $("#rating .owl-page.active").index();
+      $("#rating").css("background-image","url(images/back"+active_index+".png)");
+    /*if($(".owl-page.active").index() == 2){
+    console.log("if");
+        $(".owl-page").removeClass("active");
+        $(".owl-page").eq(0).addClass("active");
+    } else {
+    console.log("else");
+      //$(".owl-page");
+        //$(".owl-page").eq(0).addClass("active");
+      $(".owl-page.active").removeClass("active").next(".owl-page").addClass("active");
+    }*/
+
+    }
+(function($) {
+    $.fn.countTo = function(options) {
+        // merge the default plugin settings with the custom options
+        options = $.extend({}, $.fn.countTo.defaults, options || {});
+
+        // how many times to update the value, and how much to increment the value on each update
+        var loops = Math.ceil(options.speed / options.refreshInterval),
+            increment = (options.to - options.from) / loops;
+
+        return $(this).each(function() {
+            var _this = this,
+                loopCount = 0,
+                value = options.from,
+                interval = setInterval(updateTimer, options.refreshInterval);
+
+            function updateTimer() {
+                value += increment;
+                loopCount++;
+                $(_this).html(value.toFixed(options.decimals));
+
+                if (typeof(options.onUpdate) == 'function') {
+                    options.onUpdate.call(_this, value);
+                }
+
+                if (loopCount >= loops) {
+                    clearInterval(interval);
+                    value = options.to;
+
+                    if (typeof(options.onComplete) == 'function') {
+                        options.onComplete.call(_this, value);
+                    }
+                }
+            }
+        });
+    };
+
+    $.fn.countTo.defaults = {
+        from: 0,  // the number the element should start at
+        to: 100,  // the number the element should end at
+        speed: 2000,  // how long it should take to count between the target numbers
+        refreshInterval: 100,  // how often the element should be updated
+        decimals: 0,  // the number of decimal places to show
+        onUpdate: null,  // callback method for every time the element is updated,
+        onComplete: null,  // callback method for when the element finishes updating
+    };
+})(jQuery);
+
+jQuery(function($) {
+        $('.timer').countTo({
+            from: 00000,
+            to: 30000,
+            speed: 5000,
+            refreshInterval: 50,
+            onComplete: function(value) {
+                console.debug(this);
+            }
+        });
+		
+		 $('.timer2').countTo({
+            from: 00000,
+            to: 75,
+            speed: 5000,
+            refreshInterval: 50,
+            onComplete: function(value) {
+                console.debug(this);
+            }
+        });
+		 $('.timer3').countTo({
+            from: 00000,
+            to: 99,
+            speed: 5000,
+            refreshInterval: 50,
+            onComplete: function(value) {
+                console.debug(this);
+            }
+        });
+    });
+
+  $(document).ready(function() {
+   
+    $("#owl-demo1").owlCarousel({
+   
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+   
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+   
+    });
+   
+  });
+
+  $(document).ready(function() {
+   
+    $("#owl-demo2").owlCarousel({
+   
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+   rtl:true,
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+   
+    });
+   
+  });
+
+  $(function () {
+   $("#owl-example").owlCarousel({
+    transitionStyle: "fade",
+     items: 1,
+     animateOut: 'fadeOut',
+     animateIn: 'fadeOut',
+     loop: true,
+     margin: 10,
+     autoPlay:true,
+     afterMove: moved,
+   });
+
+
+
+  new WOW().init();
+  $('.fadein img:gt(0)').hide();
+  setInterval(function () {
+  $('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');
+    }, 20000);
+  $('.fadein :Last-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');
+    }, 20000);
+
+
+    /*$(".owl-pagination .owl-page").click(function(){
+      var active_index = $(".owl-page.active").index();
+      $("#rating").css("background-image","url(images/back"+active_index+".png)");
+    });*/
+</script>
+<title>LogoCubic</title>
+</head>
+
+<body>
+<div id="wrapper">
+<header>
+  <div class="top-section">
+    <div class="container"> <a href="#" class="logo"> <img src="images/logo.jpg" alt="" /> </a>
+      <ul class="mobile-btn">
+        <li>
+          <button type="button" class="btn btn-default">
+          <i class="fa fa-phone-square" aria-hidden="true"></i><a href="tel:+18883886431"> +1 (888) 388-6431</a>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn btn-default">
+          <i class="fa fa-envelope-open" aria-hidden="true"></i><a href="mailto:info@logocubic.com"> INFO@LOGOCUBIC.COM</a>
+          </button>
+        </li>
+      </ul>
+      <div class="info">
+        <ul>
+          <li class="live"><a href="#">Live Chat</a></li>
+          <li class="tel"><a href="tel:+18883886431">+1 (888) 388-6431</a></li>
+          <li class="mail"><a href="mailto:info@logocubic.com">INFO@LOGOCUBIC.COM</a></li>
+          <li  class="request"><a class="request" href="#" data-toggle="modal" data-target="#myModal">Request a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 admi wow slideInLeft">
+        <div class="fadein"> <img src="images/VSO-logo.png"> <img src="images/VSO-logo2.png"> </div>
+        <img class="man-pic" src="images/admi.png" alt=""/></div>
+      <div class="col-md-6 banner-text">
+        <h3 class="wow slideInRight">ACTIVATE YOUR COUPON NOW</h3>
+        <h4 class="wow slideInLeft">Getting a <span>CUSTOM LOGO DESIGN </span>was Never this Cheap.</h4>
+        <div class="dollar-game">
+          <h5 class="wow bounceInLeft">$39</h5>
+          <h6 class="wow bounceInRight">instead of <span>$109</span></h6>
+        </div>
+        <a class="offer-btn wow bounceInUp" href="#" data-toggle="modal" data-target="#myModal" >Click here to <span>AVAIL NOW</span></a> </div>
+    </div>
+  </div>
+</header>
+<div id="main">
+  <div class="col-md-12 iconbox">
+    <div class="container">
+      <div class="main-mrg">
+        <div class="row">
+          <div class="col-md-3 icon1 wow bounceInUp">Award-winning Dsigners</div>
+          <div class="col-md-3 icon2 wow bounceInUp">Industry Specific Designers</div>
+          <div class="col-md-3 icon3 wow bounceInUp">24/7 Design Consultancy</div>
+          <div class="col-md-3 icon4 wow bounceInUp">100% Money Back Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--iconbox End-->
+  <div class="col-md-12 companybox">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"> Trusted by <span class="yellow">50,000+ companies</span> like yours </div>
+        <div class="col-md-9"> <img class="wow slideInRight" data-wow-duration="0.5s" data-wow-delay="1s" src="images/company1.jpg" alt=""/> <img class="wow slideInRight" data-wow-duration="0.7s" data-wow-delay="1s" src="images/company2.jpg" alt=""/> <img class="wow slideInRight" data-wow-duration="0.9s" data-wow-delay="1s" src="images/company3.jpg" alt=""/> <img class="wow slideInRight" data-wow-duration="1.1s" data-wow-delay="1s" src="images/company4.jpg" alt=""/> <img class="wow slideInRight" data-wow-duration="1.3s" data-wow-delay="1s" src="images/company5.jpg" alt=""/> </div>
+      </div>
+    </div>
+  </div>
+  <!--companybox End-->
+  <div id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 services-pd">
+          <h2>Our High-End Services</h2>
+          <div class="col-md-6"><img src="images/services.jpg" alt=""/></div>
+          <div class="col-md-6">
+            <div class="full-width">
+              <h3>Custom Logo Design</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas ut tortor at faucibus. Donec in est eros. Vestibulum fermentum elit in leo posuere fringilla. Nam nec sapien urna. </p>
+            </div>
+            <!--full-width-->
+            <div class="full-width">
+              <h3>Web Design & Development</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas ut tortor at faucibus. Donec in est eros. Vestibulum fermentum elit in leo posuere fringilla. Nam nec sapien urna. </p>
+            </div>
+            <!--full-width-->
+            <div class="full-width">
+              <h3>Design Solution</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas ut tortor at faucibus. Donec in est eros. Vestibulum fermentum elit in leo posuere fringilla. Nam nec sapien urna. </p>
+            </div>
+            <!--full-width--> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Service End-->
+  <div class="pricing">
+    <div class="container">
+      <div class="wrapper-price">
+        <h2>Plans & Pricing</h2>
+        <ul class="P-btn">
+          <li class="btn active"> <a data-toggle="tab" href="#logo">Logo</a> </li>
+          <li class="btn"> <a data-toggle="tab" href="#website">Website Design</a> </li>
+          <li class="btn"> <a href="#" data-toggle="modal" data-target="#myModal">Custom</a> </li>
+        </ul>
+        <div class="tab-content">
+          <div id="logo" class="tab-pane fade in active">
+            <div class="row p1">
+              <div class="col-md-4 leftbox">
+                <div class="bndle wow slideInLeft"> <img src="images/drawing-08.png">
+                  <h4>LOGO BUNDLE</h4>
+                  <p>Your one stop branding solution</p>
+                  <h3>$149.00</h3>
+                  <p><strike>$369 </strike>60% off !</p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>Unlimited Logo Concepts</li>
+                    <li>Dedicated 4 Logo Desingers</li>
+                    <li>Social Media Designs</li>
+                    <li><span>Free Stationary Designs</span></li>
+                    <li><span>Free Colour Option</span></li>
+                    <li><span>Free Greyscale Format</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+              <div class="col-md-4 upper wow bounceInUp">
+                <div class="buiz"> <img src="images/drawing-09.png">
+                  <h4>LOGO BUNDLE</h4>
+                  <p>Flexibility and Value for growing businesses</p>
+                  <h3>$399.00</h3>
+                  <p><strike>$999 </strike>60% off !</p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>Unlimited Logo Concepts</li>
+                    <li>Dedicated 6 Logo Desingers</li>
+                    <li>Social Media Designs</li>
+                    <li>5 Page Website</li>
+                    <li>Free 1 year hosting and domain</li>
+                    <li><span>Free Stationary Designs</span></li>
+                    <li><span>Free Colour Option</span></li>
+                    <li><span>Free Greyscale Format</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+              <div class="col-md-4 rightbox wow slideInRight">
+                <div class="basic"> <img src="images/drawing-10.png" alt=""/>
+                  <h4>LOGO BUNDLE</h4>
+                  <p>Suitable for Small Business looking for a Custom Logo.</p>
+                  <h3>$39.00</h3>
+                  <p><strike>$109 </strike>60% off !</p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>4 Logo Concepts</li>
+                    <li>Dedicated 2 Logo Desingers</li>
+                    <li>Social Media Designs</li>
+                    <li><span>Free Colour Option</span></li>
+                    <li><span>FREE Final Files (Including</span></li>
+                    <li><span>AI, EPS, PSD,PDF, JPEG and PNG)</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="website" class="tab-pane fade">
+            <div class="row p2">
+              <div class="col-md-4 leftbox">
+                <div class="bndle"> <img src="images/drawing-08.png">
+                  <h4>STARTER</h4>
+                  <p>For minimum needs</p>
+                  <h3>$199.00</h3>
+                  <p><strike>$499</strike></p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>3 page custom website</li>
+                    <li>2 stock photos</li>
+                    <li>2 emails</li>
+                    <li>Complete W3C Certified HTML</li>
+                    <li>$99 For 48 Hour Rush Delivery (Optional)</li>
+                    <li>Add CMS for $299</li>
+                    <li><span>FREE Google friendly sitemap</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+              <div class="col-md-4 upper">
+                <div class="buiz buiz2"> <img src="images/drawing-09.png">
+                  <h4>PREMIUM</h4>
+                  <p>For Small Business</p>
+                  <h3>$379.00</h3>
+                  <p><strike>$949 </strike></p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>10 - 15 Page Custom Website</li>
+                    <li>1 Year Domain Name / Web Hosting</li>
+                    <li>5 Stock Photos</li>
+                    <li>Responsive Design</li>
+                    <li>$99 For 48 Hour Rush Delivery (Optional)</li>
+                    <li>Add CMS for $299</li>
+                    <li><span>FREE Content Management System</span></li>
+                    <li><span>FREE Custom Logo Design</span></li>
+                    <li><span>FREE 3 Logo Concepts</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+              <div class="col-md-4 rightbox">
+                <div class="basic"> <img src="images/drawing-10.png" alt=""/>
+                  <h4>BUSINESS</h4>
+                  <p>For Startup Needs</p>
+                  <h3>$299.00</h3>
+                  <p><strike>$749 </strike></p>
+                  <div class="borderx"></div>
+                  <ul>
+                    <li>8 - 10 Page Custom Website</li>
+                    <li>5 Stock Photos</li>
+                    <li>5 Email Addresses</li>
+                    <li>Complete W3C Certified HTML</li>
+                    <li>Free 1 year hosting and domain</li>
+                    <li>Add CMS for $299</li>
+                    <li><span>FREE 1 Year Web Hosting</span></li>
+                    <li><span>FREE Google Friendly Sitemap</span></li>
+                  </ul>
+                  <button type="button" class="btn">ORDER NOW</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Pricing Grid wrapper -->
+  <div id="design">
+    <h3>Our Design Maestros Create Unmatchable Masterpieces</h3>
+    <h4>Don’t Believe Us??? Check Out Yourself</h4>
+    <div class="row d1-slideshow">
+      <div id="owl-demo1">
+          
+<div class="item"><img src="images/piclogo(1).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(2).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(3).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(4).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(5).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(6).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(7).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(8).jpg" alt="Owl Image"></div>
+</div>
+
+<div id="owl-demo2">
+<div class="item"><img src="images/piclogo(9).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(10).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(11).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(12).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(13).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(14).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(15).jpg" alt="Owl Image"></div>
+<div class="item"><img src="images/piclogo(16).jpg" alt="Owl Image"></div>
+ 
+</div>
+    </div>
+    <ul class="d-btn">
+      <li>
+        <button type="button" class="btn">View More Portfolio</button>
+      </li>
+      <li>or</li>
+      <li>
+        <button type="button" class="btn">Request a Quote</button>
+      </li>
+    </ul>
+  </div>
+  <!-- End of Design -->
+  <div id="process">
+    <div class="container">
+      <h2>Simple Design Process</h2>
+      <p class="small-para">Get Your Logo Designed And Delivered In A Seamless Manner</p>
+      <div class="row p-div">
+        <div class="col-md-3 col-sm-3 col-sx-1 pbox"> <img src="images/sdp1.png" alt=""/>
+          <h3>Design Breif</h3>
+        </div>
+        <div class="col-md-3 col-sm-3 col-sx-1 pbox"> <img src="images/sdp2.png" alt=""/>
+          <h3>Conceptulization</h3>
+        </div>
+        <div class="col-md-3 col-sm-3 col-sx-1 pbox"> <img src="images/sdp3.png" alt=""/>
+          <h3>Final Draft and Revision</h3>
+        </div>
+        <div class="col-md-3 col-sm-3 col-sx-1 pbox"> <img src="images/sdp4.png" alt=""/>
+          <h3>Final Delievery</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Process -->
+  
+  <div id="request">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 rgrid">
+          <ul class="request-grid">
+            <li> <img src="images/smiley.png" alt=""/>
+              <span class="timer"></span>
+              <p>Happy Customer</p>
+            </li>
+            <li> <img class="jahaz-s" src="images/jahaz.png" alt=""/>
+              <span class="timer"></span>
+              <p>Beautiful Websites</p>
+            </li>
+          </ul>
+          <ul class="request-grid">
+            <li> <img src="images/building.png" alt=""/>
+           
+              <h3><span class="timer2"></span> %</h3>
+              <p>Repeat Buisiness</p>
+            </li>
+            <li> <img src="images/heart.png" alt=""/>
+            <h3><span class="timer3"></span> %</h3>
+              <p>Positive Reviews</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6 request-form">
+          <p>Want To Know What It Will Take To Bring Your Business On Track?</p>
+          <h4>Submit Us Your Request & We Will Get Back To You</h4>
+          <form action="contact_form.php" method="post">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="your_email" placeholder="Email Address">
+            <input type="text" name="phone" placeholder="Phone Number">
+            <textarea class="txt-area" name="comments" placeholder="Message"> </textarea>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+      </div>
+      </div>
+      </div>
+  <!-- End of Request -->
+  
+  <div id="rating">
+    <div class="container">
+      <div id="owl-example" class="owl-carousel">
+        
+
+        <div>
+          <div class="row">
+            <div class="col-md-6 rating-grid">
+              <div class="row"> 
+              <img class="person-img" src="images/g31.png" alt=""/></img>
+                <h3>George Elliot</h3>
+                <img class="person-arrow" src="images/arrow.png" alt=""/> </div>
+                <p class="owner-info">C.E.O - Collins Bros</p>
+              <div class="row">
+                <p class="rating-para">Logocubic produced a great logo mockup and demonstrated great intuition in producing what we were looking for even in the face of a lack of direction from myself. Great job!</p>
+                
+                <img class="person-rtng" src="images/rating-3.png" alt=""/>
+              </div>
+            </div>
+            <div class="col-md-6 mobile-grid"> <img class="mobile-clipart" src="images/mobile.png" alt=""/> </div>
+          </div>
+        </div>
+        
+
+        <div>
+          <div class="row">
+            <div class="col-md-6 rating-grid">
+              <div class="row"> 
+              <img class="person-img" src="images/g32.png" alt=""/></img>
+                <h3>Michael Bruck</h3>
+                <img class="person-arrow" src="images/arrow.png" alt=""/> </div>
+                <p class="owner-info owner-info2">C.E.O - True Body Fitness</p>
+              <div class="row">
+                <p class="rating-para">Excellent job by logocubic, with whom I have worked many times! Talented designers and produces work on schedule. Thank you very very much.</p>
+                
+                <img class="person-rtng" src="images/rating-5.png" alt=""/>
+              </div>
+            </div>
+            <div class="col-md-6 mobile-grid"> <img class="mobile-clipart" src="images/mobile1.png" alt=""/> </div>
+          </div>
+        </div>
+        <div>
+          
+
+          <div>
+          <div class="row">
+            <div class="col-md-6 rating-grid">
+              <div class="row"> 
+              <img class="person-img" src="images/g33.png" alt=""/></img>
+                <h3>Vincent Martin</h3>
+                <img class="person-arrow" src="images/arrow.png" alt=""/> </div>
+                <p class="owner-info owner-info3">C.E.O - Big Red</p>
+              <div class="row">
+                <p class="rating-para">Great logo designer. Understood the concept immediately. Initial design was virtually final. Excellent communication. Highly recommended.</p>
+                
+                <img class="person-rtng" src="images/rating-4.png" alt=""/>
+              </div>
+            </div>
+            <div class="col-md-6 mobile-grid"> <img class="mobile-clipart" src="images/mobile2.png" alt=""/> </div>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!--main--> 
+    
+  </div>
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 about"> <img src="images/logo-footer.png"></img>
+          <p>LogoCubic is one of the leading design services around the world offering a wide range of services including Logo Designs, Web Designs, Brand Solutions and Web Development.</p>
+        </div>
+        <div class="col-md-3 quick-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li><a href="#">Testimonial</a></li>
+            <li><a href="#">Abous Us</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 card-payment">
+          <h3>EASY PAYMENT</h3>
+          <img src="images/credit-cards.png"></img> </div>
+        <div class="col-md-3 support">
+          <h3>CUSTOMER SUPPORT</h3>
+          <ul>
+            <li><img src="images/fone.png" alt=""/><a href="mailto:info@logocubic.com"> +1(888)388-6431</a></li>
+            <li><img src="images/msg.png" alt=""/><a href="mailto:info@logocubic.com"> INFO@LOGOCUBIC.COM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 copyright">
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <p>&copy; Copyright 2017 logocubic.com. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-6 disclaimer">
+          <p>Disclaimer: Logo, portfolio, images and content are sole property of Logocubic. All third party company names, brand names, trademarks displayed on this website are the property of their respective owners. Furthermore, Logocubic has no influence over the third party material that is being displayed on the website. Therefore, we are also not responsible for any resemblance with any other material on the web. These portfolios and case studies are actual but exemplary (for better understanding); the actual names, designs, functionality, content and stats/facts may differ from the actual projects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+<a href="#" class="logo-f"> <img src="images/logo-footer.png" alt="" /></a>
+
+        <h4 class="modal-title">
+READY TO GIVE YOUR BUSINESS THE PERFECT DIRECTION?</h4>
+      </div>
+      <div class="modal-body">
+        <div class="contact-form">
+          <div class="row">
+            <div class="col-md-12"> 
+              
+              <!-- BEGIN DOWNLOAD PANEL -->
+              
+              <div class="panel-body">
+                <form action="contact_form.php" id="contact-us-all" method="post" class="bv-form form-horizontal track-event-form" data-formname="”ContactUs”" data-goaltype="”General”" novalidate>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i> </div>
+                        <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Name" name="first_name" data-bv-field="C_FirstName">
+                      </div>
+                      <small class="help-block" data-bv-validator="notEmpty" data-bv-validator-for="C_FirstName">Required</small> </div>
+                    <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-envelope"></i> </div>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="your_email" data-bv-field="C_EmailAddress">
+                      </div>
+                      <small class="help-block" data-bv-validator="notEmpty" data-bv-validator-for="C_EmailAddress">Required</small> </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-globe"></i> </div>
+                        <select data-placeholder="Choose country" class="C_Country_Modal form-control" id="C_Country" name="country" data-bv-field="C_Country">
+                          <option value="">--Select Country-- </option>
+                          <option value="United States">United States </option>
+                          <option value="Afghanistan">Afghanistan </option>
+                          <option value="Albania">Albania </option>
+                          <option value="Algeria">Algeria </option>
+                          <option value="American Samoa">American Samoa </option>
+                          <option value="Andorra">Andorra </option>
+                          <option value="Angola">Angola </option>
+                          <option value="Anguilla">Anguilla </option>
+                          <option value="Antarctica">Antarctica </option>
+                          <option value="Antigua and Barbuda">Antigua and Barbuda </option>
+                          <option value="Argentina">Argentina </option>
+                          <option value="Armenia">Armenia </option>
+                          <option value="Aruba">Aruba </option>
+                          <option value="Australia">Australia </option>
+                          <option value="Austria">Austria </option>
+                          <option value="Azerbaijan">Azerbaijan </option>
+                          <option value="Bahamas">Bahamas </option>
+                          <option value="Bahrain">Bahrain </option>
+                          <option value="Bangladesh">Bangladesh </option>
+                          <option value="Barbados">Barbados </option>
+                          <option value="Belarus">Belarus </option>
+                          <option value="Belgium">Belgium </option>
+                          <option value="Belize">Belize </option>
+                          <option value="Benin">Benin </option>
+                          <option value="Bermuda">Bermuda </option>
+                          <option value="Bhutan">Bhutan </option>
+                          <option value="Bolivia">Bolivia </option>
+                          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina </option>
+                          <option value="Botswana">Botswana </option>
+                          <option value="Bouvet Island">Bouvet Island </option>
+                          <option value="Brazil">Brazil </option>
+                          <option value="British Indian Ocean Territory">British Indian Ocean Territory </option>
+                          <option value="Brunei Darussalam">Brunei Darussalam </option>
+                          <option value="Bulgaria">Bulgaria </option>
+                          <option value="Burkina Faso">Burkina Faso </option>
+                          <option value="Burundi">Burundi </option>
+                          <option value="Cambodia">Cambodia </option>
+                          <option value="Cameroon">Cameroon </option>
+                          <option value="Canada">Canada </option>
+                          <option value="Cape Verde">Cape Verde </option>
+                          <option value="Cayman Islands">Cayman Islands </option>
+                          <option value="Central African Republic">Central African Republic </option>
+                          <option value="Chad">Chad </option>
+                          <option value="Chile">Chile </option>
+                          <option value="China">China </option>
+                          <option value="Christmas Island">Christmas Island </option>
+                          <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands </option>
+                          <option value="Colombia">Colombia </option>
+                          <option value="Comoros">Comoros </option>
+                          <option value="Congo">Congo </option>
+                          <option value="Congo, The Democratic Republic of the">Congo, The Democratic Republic of the </option>
+                          <option value="Cook Islands">Cook Islands </option>
+                          <option value="Costa Rica">Costa Rica </option>
+                          <option value="CÙte d'Ivoire">Côte d'Ivoire </option>
+                          <option value="Croatia">Croatia </option>
+                          <option value="Cuba">Cuba </option>
+                          <option value="Cyprus">Cyprus </option>
+                          <option value="Czech Republic">Czech Republic </option>
+                          <option value="Denmark">Denmark </option>
+                          <option value="Djibouti">Djibouti </option>
+                          <option value="Dominica">Dominica </option>
+                          <option value="Dominican Republic">Dominican Republic </option>
+                          <option value="Ecuador">Ecuador </option>
+                          <option value="Egypt">Egypt </option>
+                          <option value="El Salvador">El Salvador </option>
+                          <option value="Equatorial Guinea">Equatorial Guinea </option>
+                          <option value="Eritrea">Eritrea </option>
+                          <option value="Estonia">Estonia </option>
+                          <option value="Ethiopia">Ethiopia </option>
+                          <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas) </option>
+                          <option value="Faroe Islands">Faroe Islands </option>
+                          <option value="Fiji">Fiji </option>
+                          <option value="Finland">Finland </option>
+                          <option value="France">France </option>
+                          <option value="French Guiana">French Guiana </option>
+                          <option value="French Polynesia">French Polynesia </option>
+                          <option value="French Southern Territories">French Southern Territories </option>
+                          <option value="Gabon">Gabon </option>
+                          <option value="Gambia">Gambia </option>
+                          <option value="Georgia">Georgia </option>
+                          <option value="Germany">Germany </option>
+                          <option value="Ghana">Ghana </option>
+                          <option value="Gibraltar">Gibraltar </option>
+                          <option value="Greece">Greece </option>
+                          <option value="Greenland">Greenland </option>
+                          <option value="Grenada">Grenada </option>
+                          <option value="Guadeloupe">Guadeloupe </option>
+                          <option value="Guam">Guam </option>
+                          <option value="Guatemala">Guatemala </option>
+                          <option value="Guernsey">Guernsey </option>
+                          <option value="Guinea">Guinea </option>
+                          <option value="Guinea-Bissau">Guinea-Bissau </option>
+                          <option value="Guyana">Guyana </option>
+                          <option value="Haiti">Haiti </option>
+                          <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands </option>
+                          <option value="Holy See (Vatican City State)">Holy See (Vatican City State) </option>
+                          <option value="Honduras">Honduras </option>
+                          <option value="Hong Kong">Hong Kong </option>
+                          <option value="Hungary">Hungary </option>
+                          <option value="Iceland">Iceland </option>
+                          <option value="India">India </option>
+                          <option value="Indonesia">Indonesia </option>
+                          <option value="Iran, Islamic Republic of">Iran, Islamic Republic of </option>
+                          <option value="Iraq">Iraq </option>
+                          <option value="Ireland">Ireland </option>
+                          <option value="Isle of Man">Isle of Man </option>
+                          <option value="Israel">Israel </option>
+                          <option value="Italy">Italy </option>
+                          <option value="Jamaica">Jamaica </option>
+                          <option value="Japan">Japan </option>
+                          <option value="Jersey">Jersey </option>
+                          <option value="Jordan">Jordan </option>
+                          <option value="Kazakhstan">Kazakhstan </option>
+                          <option value="Kenya">Kenya </option>
+                          <option value="Kiribati">Kiribati </option>
+                          <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of </option>
+                          <option value="Korea, Republic of">Korea, Republic of </option>
+                          <option value="Kuwait">Kuwait </option>
+                          <option value="Kyrgyzstan">Kyrgyzstan </option>
+                          <option value="Lao People's Democratic Republic">Lao People's Democratic Republic </option>
+                          <option value="Latvia">Latvia </option>
+                          <option value="Lebanon">Lebanon </option>
+                          <option value="Lesotho">Lesotho </option>
+                          <option value="Liberia">Liberia </option>
+                          <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya </option>
+                          <option value="Liechtenstein">Liechtenstein </option>
+                          <option value="Lithuania">Lithuania </option>
+                          <option value="Luxembourg">Luxembourg </option>
+                          <option value="Macao">Macao </option>
+                          <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of </option>
+                          <option value="Madagascar">Madagascar </option>
+                          <option value="Malawi">Malawi </option>
+                          <option value="Malaysia">Malaysia </option>
+                          <option value="Maldives">Maldives </option>
+                          <option value="Mali">Mali </option>
+                          <option value="Malta">Malta </option>
+                          <option value="Marshall Islands">Marshall Islands </option>
+                          <option value="Martinique">Martinique </option>
+                          <option value="Mauritania">Mauritania </option>
+                          <option value="Mauritius">Mauritius </option>
+                          <option value="Mayotte">Mayotte </option>
+                          <option value="Mexico">Mexico </option>
+                          <option value="Micronesia, Federated States of">Micronesia, Federated States of </option>
+                          <option value="Moldova, Republic of">Moldova, Republic of </option>
+                          <option value="Monaco">Monaco </option>
+                          <option value="Mongolia">Mongolia </option>
+                          <option value="Montenegro">Montenegro </option>
+                          <option value="Montserrat">Montserrat </option>
+                          <option value="Morocco">Morocco </option>
+                          <option value="Mozambique">Mozambique </option>
+                          <option value="Myanmar">Myanmar </option>
+                          <option value="Namibia">Namibia </option>
+                          <option value="Nauru">Nauru </option>
+                          <option value="Nepal">Nepal </option>
+                          <option value="Netherlands">Netherlands </option>
+                          <option value="Netherlands Antilles">Netherlands Antilles </option>
+                          <option value="New Caledonia">New Caledonia </option>
+                          <option value="New Zealand">New Zealand </option>
+                          <option value="Nicaragua">Nicaragua </option>
+                          <option value="Niger">Niger </option>
+                          <option value="Nigeria">Nigeria </option>
+                          <option value="Niue">Niue </option>
+                          <option value="Norfolk Island">Norfolk Island </option>
+                          <option value="Northern Mariana Islands">Northern Mariana Islands </option>
+                          <option value="Norway">Norway </option>
+                          <option value="Oman">Oman </option>
+                          <option value="Pakistan">Pakistan </option>
+                          <option value="Palau">Palau </option>
+                          <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied </option>
+                          <option value="Panama">Panama </option>
+                          <option value="Papua New Guinea">Papua New Guinea </option>
+                          <option value="Paraguay">Paraguay </option>
+                          <option value="Peru">Peru </option>
+                          <option value="Philippines">Philippines </option>
+                          <option value="Pitcairn">Pitcairn </option>
+                          <option value="Poland">Poland </option>
+                          <option value="Portugal">Portugal </option>
+                          <option value="Puerto Rico">Puerto Rico </option>
+                          <option value="Qatar">Qatar </option>
+                          <option value="Reunion">Reunion </option>
+                          <option value="Romania">Romania </option>
+                          <option value="Russian Federation">Russian Federation </option>
+                          <option value="Rwanda">Rwanda </option>
+                          <option value="Saint BarthÈlemy">Saint Barthélemy </option>
+                          <option value="Saint Helena">Saint Helena </option>
+                          <option value="Saint Kitts and Nevis">Saint Kitts and Nevis </option>
+                          <option value="Saint Lucia">Saint Lucia </option>
+                          <option value="Saint Martin">Saint Martin </option>
+                          <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon </option>
+                          <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines </option>
+                          <option value="Samoa">Samoa </option>
+                          <option value="San Marino">San Marino </option>
+                          <option value="Sao Tome and Principe">Sao Tome and Principe </option>
+                          <option value="Saudi Arabia">Saudi Arabia </option>
+                          <option value="Senegal">Senegal </option>
+                          <option value="Serbia">Serbia </option>
+                          <option value="Seychelles">Seychelles </option>
+                          <option value="Sierra Leone">Sierra Leone </option>
+                          <option value="Singapore">Singapore </option>
+                          <option value="Slovakia">Slovakia </option>
+                          <option value="Slovenia">Slovenia </option>
+                          <option value="Solomon Islands">Solomon Islands </option>
+                          <option value="Somalia">Somalia </option>
+                          <option value="South Africa">South Africa </option>
+                          <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands </option>
+                          <option value="Spain">Spain </option>
+                          <option value="Sri Lanka">Sri Lanka </option>
+                          <option value="Sudan">Sudan </option>
+                          <option value="Suriname">Suriname </option>
+                          <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen </option>
+                          <option value="Swaziland">Swaziland </option>
+                          <option value="Sweden">Sweden </option>
+                          <option value="Switzerland">Switzerland </option>
+                          <option value="Syrian Arab Republic">Syrian Arab Republic </option>
+                          <option value="Taiwan, Province of China">Taiwan, Province of China </option>
+                          <option value="Tajikistan">Tajikistan </option>
+                          <option value="Tanzania, United Republic of">Tanzania, United Republic of </option>
+                          <option value="Thailand">Thailand </option>
+                          <option value="Timor-Leste">Timor-Leste </option>
+                          <option value="Togo">Togo </option>
+                          <option value="Tokelau">Tokelau </option>
+                          <option value="Tonga">Tonga </option>
+                          <option value="Trinidad and Tobago">Trinidad and Tobago </option>
+                          <option value="Tunisia">Tunisia </option>
+                          <option value="Turkey">Turkey </option>
+                          <option value="Turkmenistan">Turkmenistan </option>
+                          <option value="Turks and Caicos Islands">Turks and Caicos Islands </option>
+                          <option value="Tuvalu">Tuvalu </option>
+                          <option value="Uganda">Uganda </option>
+                          <option value="Ukraine">Ukraine </option>
+                          <option value="United Arab Emirates">United Arab Emirates </option>
+                          <option value="United Kingdom">United Kingdom </option>
+                          <option value="United States Minor Outlying Island">United States Minor Outlying Island </option>
+                          <option value="Uruguay">Uruguay </option>
+                          <option value="Uzbekistan">Uzbekistan </option>
+                          <option value="Vanuatu">Vanuatu </option>
+                          <option value="Venezuela">Venezuela </option>
+                          <option value="Viet Nam">Viet Nam </option>
+                          <option value="Virgin Islands, British">Virgin Islands, British </option>
+                          <option value="Virgin Islands, U.S.">Virgin Islands, U.S. </option>
+                          <option value="Wallis and Futuna">Wallis and Futuna </option>
+                          <option value="Western Sahara">Western Sahara </option>
+                          <option value="Yemen">Yemen </option>
+                          <option value="Zambia">Zambia </option>
+                          <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                      </div>
+                      <small class="help-block" data-bv-validator="callback" data-bv-validator-for="C_Country" style="display:none">Choose one</small> </div>
+                    <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i> </div>
+                        <input type="text" class="form-control" id="C_BusPhone" placeholder="Phone" name="phone">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <div class="input-group">
+                        <div class="input-group-addon ipa">
+                          <textarea class="form-control" name="comments" id="Comments" rows="5" placeholder="Share your brief"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <button class="btn btn-logo btn-primary hvr-float-shadow" id="contacts-submit" type="submit" name="submit">Submit Your Request</button>
+                    </div>
+                  </div>
+                  <input type="hidden">
+                </form>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--model popup End-->
+<!--Start of Tawk.to Script-->
+
+<script type="text/javascript">
+
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+(function(){
+
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+
+s1.async=true;
+
+s1.src='https://embed.tawk.to/58e27fe9f7bbaa72709c3f1d/default';
+
+s1.charset='UTF-8';
+
+s1.setAttribute('crossorigin','*');
+
+s0.parentNode.insertBefore(s1,s0);
+
+})();
+
+</script>
+
+<!--End of Tawk.to Script-->
+</body>
+
+</html>

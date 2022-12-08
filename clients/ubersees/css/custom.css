@@ -1,0 +1,212 @@
+div#wrapper {
+    width: 100%;
+}
+img.banner {
+    width: 100%;
+}
+.logo{
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    background-color: #0000005c;
+    padding: 15px 0;
+}
+header h1 {
+	font-family: 'Poppins', sans-serif;
+	font-weight:600;
+	font-size:71px;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 150px 0 0 0;
+    width: 100%;
+    color: #fff;
+}
+.middle-section {
+	font-family: 'Poppins', sans-serif;
+    background: #89847f;
+    padding: 30px 0 20px 0;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+section.main {
+    background: #d8d2c8;
+}
+form.formbox {
+	margin: 19px 0 39px 0;
+    background: url(../images/form-bg.jpg) no-repeat center;
+    background-size: cover;
+    padding: 80px 196px 55px 196px;
+    color: #fff;
+	    border-radius: 4px;
+}
+.formbox input[type="submit"] {
+    background: #666666;
+    color: #fff;
+    width: 296px;
+    margin: 59px auto 0;
+    display: table;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    height: 55px;
+}
+form.formbox input {
+	border:0px;
+	    border-radius: 5px;
+	height:46px;
+    width: 100%;
+}
+form.formbox label {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin: 10px 0 9px 0;
+}
+form.formbox h2 {
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+}
+
+footer {
+    background: #89847f;
+    color: #fff;
+	    padding: 22px 0 10px 0;
+}
+footer p {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.newsletter input[type="submit"] {
+        font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    background: #666;
+    border: 0;
+    padding: 5px 13px;
+    border-radius: 3px;
+    position: relative;
+    top: -2px;
+}
+.newsletter .email{background: transparent;
+    border: 1px solid #e1e1e1;
+    padding: 3px 10px;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 204px;}
+footer .col-lg-3 {
+    padding-left: 0;
+}
+footer .col-lg-9 {
+    padding-right: 0px;
+}	
+	
+@media screen and (min-width:240px) and (max-width:767px) {
+	.logo {
+    position: relative;
+}
+.logo img {
+    max-width: 90px;
+}
+header h1 {
+    font-size: 19px;
+    height: 130px;
+    padding: 0;
+}
+.middle-section {
+    font-size: 14px;
+}
+form.formbox {
+    padding: 10px;
+}
+
+form.formbox h2 {
+    font-size: 23px;
+    margin: 15px 0 5px 0;
+}
+.formbox input[type="submit"] {
+    width: 100%;
+    margin: 24px auto 10px;
+    font-size: 18px;
+}
+footer p {
+    font-size: 13px;
+    text-align: center;
+}
+footer .col-lg-9 {
+    padding-right: 15px;
+}
+footer .col-lg-3 {
+	    text-align: center;
+    padding-left: 15px;
+}
+}	
+@media screen and (min-width:400px) and (max-width:767px) {
+header h1 {
+    font-size: 27px;
+    height: 202px;
+    padding: 0;
+}	
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+	.logo {
+    position: relative;
+}
+.logo img {
+    max-width: 90px;
+}	
+header h1 {
+    font-size: 30px;
+    height: 300px;
+    padding: 0;
+}
+form.formbox {
+    padding: 80px 50px 55px 50px;
+}
+footer .col-lg-3 {
+    padding-left: 15px;
+    max-width: 100% !important;
+    width: 100%;
+    display: table;
+    flex: 100%;
+    text-align: center;
+}
+footer .col-lg-9 {
+    padding-right: 15px;
+	 max-width: 100% !important;
+    width: 100%;
+    display: table;
+    flex: 100%;
+    text-align: center;
+}
+	}
+@media screen and (min-width:1024px) and (max-width:1100px) {
+	.logo img {
+    max-width: 100px;
+}
+header h1 {
+    font-size: 41px;
+    height: 519px;
+    padding: 0 0 0 0;
+}
+footer p {
+    font-size: 15px;
+}
+.newsletter .email {
+    max-width: 178px;
+}
+.newsletter input[type="submit"] {
+    font-size: 13px;
+    padding: 5px 4px;
+}
+	}	
